@@ -2,7 +2,7 @@
 </style>
 <template>
   <view class="container">
-    Hello world
+    Hello world!
   </view>
 </template>
 

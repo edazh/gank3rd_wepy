@@ -1,12 +1,22 @@
+const path = require('path');
 var prod = process.env.NODE_ENV === 'production'
 
 module.exports = {
   wpyExt: '.wpy',
   eslint: false,
   cliLogs: true,
+  build: {
+    web: {
+      apis: ['showToast', 'showActionSheet', 'showModal'],
+      components: ['navigator', 'button', 'icon', 'progress', 'slider', 'radio', 'radio-group', 'checkbox', 'checkbox-group', 'switch'],
+      htmlTemplate: path.join('src', 'index.template.html'),
+      htmlOutput: path.join('web', 'index.html'),
+      jsOutput: path.join('web', 'index.js')
+    }
+  },
   compilers: {
     less: {
-      compress: true
+      compress: false
     },
     /*sass: {
       outputStyle: 'compressed'
@@ -21,7 +31,7 @@ module.exports = {
         'transform-export-extensions',
         'syntax-export-extensions'
       ]
-    }
+    } 
   },
   plugins: {
   },

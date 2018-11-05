@@ -1,0 +1,20 @@
+<style lang="less">
+</style>
+<template>
+  <view class="container">
+    闲读
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Index extends wepy.page {
+    config = {
+      navigationBarTitleText: '闲读'
+    }
+    onLoad() {
+      console.log('onLoad')
+    }
+  }
+</script>

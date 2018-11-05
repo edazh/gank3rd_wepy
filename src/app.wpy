@@ -1,24 +1,69 @@
 <style lang="less">
+@import './style/weui.less';
 </style>
 
 <script>
-import wepy from 'wepy'
+import wepy from 'wepy';
+import 'wepy-async-function';
 
 export default class extends wepy.app {
+    colors = {
+    primaryColor:'#FF9800',//主色
+    darkPrimaryColor:'#F57C00',//深主色
+    lightPrimaryColor:'#FFE0B2',//淡主色
+    textPrimaryColor:'#fff',//主色上的文本色👈
+    accentColor:'#4CAF50',//强调色
+    primaryTextColor:'#212121',//文本主色
+    secondaryTextColor:'#757575',//辅文本色
+    dividerColor:'#BDBDBD'//分割线色
+  }
   config = {
-    pages: [
-      'pages/index'
-    ],
+    pages: ['pages/gank', 'pages/read', 'pages/weal'],
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
+      navigationBarBackgroundColor: '#FF9800',
       navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      navigationBarTextStyle: 'white'
+    },
+    tabBar: {
+      color:'#757575',
+      selectedColor:'#FF9800',
+      backgroundColor:'#fff',//背景色
+      list: [
+        {
+          pagePath: 'pages/gank',
+          text: '干货',
+          iconPath:'./images/icons/ic_earth@normal.png',
+          selectedIconPath:'./images/icons/ic_earth@selected.png'
+        },
+        {
+          pagePath: 'pages/read',
+          text: '闲读',
+          iconPath:'./images/icons/ic_book@normal.png',
+          selectedIconPath:'./images/icons/ic_book@selected.png'
+        },
+        {
+          pagePath: 'pages/weal',
+          text: '福利',
+          iconPath:'./images/icons/ic_fire@normal.png',
+          selectedIconPath:'./images/icons/ic_fire@selected.png'
+        }
+      ]
     }
+  };
+
+  
+
+
+
+  constructor() {
+    super();
+    this.use('promisify');
   }
 
   onLaunch() {
-    console.log('on launch')
+    console.log('on launch');
+    console.log(this)
   }
 }
 </script>
